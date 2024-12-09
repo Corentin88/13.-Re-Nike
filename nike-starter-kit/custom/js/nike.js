@@ -37,16 +37,18 @@ window.addEventListener("load", () => {
  let shoesList = document.getElementById("shoesList");
  
 
-settings.shoes.forEach((shoe)=>{
-    console.log(shoe);
+settings.shoes.forEach(shoe=>{
     let shoeItem = document.createElement("div");
-    shoeItem.classList.add = ("shoe-item");
+    shoeItem.classList.add ("col-lg-4", "col-md-6","col-12", "d-flex", "align-items-center", "justify-content-center", "position-relative", "shoe", "showShoe");
+    
     shoeItem.innerHTML = `
-            <img src="${shoe.image}" alt="${shoe.name}">
-            <h3>${shoe.name}</h3>
-            <p>Prix : ${shoe.price.toLocaleString()} €</p>
-        `;
+    <img src="./images/${shoe.image}" width="100%" class="gray-scale">
+    <div class="position-absolute price d-flex align-items-center justify-content-center fw-bolder h5">
+        ${shoe.price} €</div>
+    <div class="position-absolute model p-3 fw-bolder h3">${shoe.name}</div>`;
+
     shoesList.appendChild(shoeItem);
+
 })
 
 

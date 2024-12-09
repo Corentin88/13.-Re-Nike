@@ -31,10 +31,22 @@ const settings = {
 };
 window.addEventListener("load", () => {
 
-alert("You're ready !")
     
 })
 
+ let shoesList = document.getElementById("shoesList");
+ 
 
+settings.shoes.forEach((shoe)=>{
+    console.log(shoe);
+    let shoeItem = document.createElement("div");
+    shoeItem.classList.add = ("shoe-item");
+    shoeItem.innerHTML = `
+            <img src="${shoe.image}" alt="${shoe.name}">
+            <h3>${shoe.name}</h3>
+            <p>Prix : ${shoe.price.toLocaleString()} €</p>
+        `;
+    shoesList.appendChild(shoeItem);
+})
 
 

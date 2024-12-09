@@ -40,7 +40,6 @@ window.addEventListener("load", () => {
 settings.shoes.forEach(shoe=>{
     let shoeItem = document.createElement("div");
     shoeItem.classList.add ("col-lg-4", "col-md-6","col-12", "d-flex", "align-items-center", "justify-content-center", "position-relative", "shoe", "showShoe");
-    
     shoeItem.innerHTML = `
     <img src="./images/${shoe.image}" width="100%" class="gray-scale">
     <div class="position-absolute price d-flex align-items-center justify-content-center fw-bolder h5">
@@ -48,7 +47,48 @@ settings.shoes.forEach(shoe=>{
     <div class="position-absolute model p-3 fw-bolder h3">${shoe.name}</div>`;
 
     shoesList.appendChild(shoeItem);
-
 })
 
+let pagination = document.getElementById("pagination");
+let totalPages = Math.ceil(settings.shoes.length/settings.itemsPerPage);
 
+for (let i = 0; i < totalPages; i++){
+    let pageUl = document.createElement("ul");
+    pageUl.classList.add("pagination", "pagination-lg");
+    let pageItem = document.createElement("li");
+    pageItem.classList.add("page-item");
+    let pageLink = document.createElement("a");
+    pageLink.classList.add("page-link","font-weight-bold","text-dark","selectedPaginator");
+    
+    pagination.appendChild(pageUl);
+    pageUl.appendChild(pageItem);
+    pageItem.appendChild(pageLink);
+
+}
+
+
+
+/*
+<li class="page-item" data-start="0">
+    <a class="page-link font-weight-bold text-dark selectedPaginator">1</a>
+</li> 
+
+<div class="row m-3">
+<div class="col-12" id="pagination">
+<ul class="pagination pagination-lg">
+<li class="page-item" data-start="0">
+    <a class="page-link font-weight-bold text-dark selectedPaginator">1</a>
+</li>
+<li class="page-item" data-start="6">
+<a class="page-link font-weight-bold text-dark unselectedPaginator">2</a></li>
+<li class="page-item" data-start="12">
+    <a class="page-link font-weight-bold text-dark unselectedPaginator">3</a>
+</li>
+<li class="page-item" data-start="18">
+<a class="page-link font-weight-bold text-dark unselectedPaginator">4</a>
+</li>
+</ul>
+</div>
+</div> 
+
+*/
